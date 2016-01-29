@@ -9,8 +9,9 @@ public class HuffmanNode implements Comparable
 	protected HuffmanNode left;
 	protected HuffmanNode right;
 	/*
-	@param
-	@return
+	Constructor - sets left and right to null
+	@param v Value
+	@param f Frequency
 	*/
 	public HuffmanNode(String v, int f)
 	{
@@ -21,8 +22,9 @@ public class HuffmanNode implements Comparable
 	}
 	
 	/*
-	@param
-	@return
+	Constructor that makes new node with 2 existing nodes as its left and right
+	@param l Left node
+	@param r Right node
 	*/
 	public HuffmanNode(HuffmanNode l, HuffmanNode r)
 	{
