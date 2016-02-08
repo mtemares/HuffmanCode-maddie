@@ -147,4 +147,24 @@ public class HuffmanNode implements Comparable
 		}
 		return false;
 	}	
+	
+	
+	/*
+	toString method
+	@return String String rep of node
+	*/
+	public String toString()
+	{
+		String output = "";
+		if (isLeaf())
+		{
+			output += value();
+		}
+		else
+		{
+			output += value();
+			return left.toString() + right.toString();
+		}
+		return output;
+	}
 }
