@@ -1,3 +1,14 @@
+/*
+@author Maddie Temares
+
+HuffmanNode is the node for each element in the HuffmanTree. It holds the frequency and value
+of each letter and then each set of combined characters when the tree is being formed
+upwards. A HuffmanNode has a left and right value, similar to binary tree, because the values
+that the huffmanNode holds has subtrees. For example, a huffmannode with value "sf" would have 
+subtrees of "s" and "f".
+
+*/
+
 import java.util.HashMap;
 import java.util.PriorityQueue;
 
@@ -8,8 +19,9 @@ public class HuffmanNode implements Comparable
 	protected String value;
 	protected HuffmanNode left;
 	protected HuffmanNode right;
+	
 	/*
-	Constructor - sets left and right to null
+	Constructor - sets left and right to null - these would be leaf nodes
 	@param v Value
 	@param f Frequency
 	*/
@@ -35,17 +47,8 @@ public class HuffmanNode implements Comparable
 	}
 	
 	/*
-	@param
-	@return
-	*/
-	public HuffmanNode(String v)
-	{
-		value = v;
-	}
-	
-	/*
-	@param
-	@return
+	Accessor for frequency
+	@return int Frequency
 	*/
 	public int frequency()
 	{
@@ -53,8 +56,9 @@ public class HuffmanNode implements Comparable
 	}
 	
 	/*
-	@param
-	@return
+	Modifier for frequency
+	@param f Frequency to be set
+	@return void
 	*/
 	public void setFrequency(int f)
 	{
@@ -62,8 +66,8 @@ public class HuffmanNode implements Comparable
 	}
 		
 	/*
-	@param
-	@return
+	Accessor for value
+	@return String Frequency
 	*/
 	public String value()
 	{
@@ -71,8 +75,9 @@ public class HuffmanNode implements Comparable
 	}
 	
 	/*
-	@param
-	@return
+	Modifier for value
+	@param v Value to be set
+	@return void
 	*/
 	public void setValue(String v)
 	{
@@ -80,8 +85,8 @@ public class HuffmanNode implements Comparable
 	}
 	
 	/*
-	@param
-	@return
+	Accessor for left
+	@return HuffmanNode left
 	*/
 	public HuffmanNode left()
 	{
@@ -89,8 +94,9 @@ public class HuffmanNode implements Comparable
 	}
 	
 	/*
-	@param
-	@return
+	Modifier for left
+	@param l Left huffmannode to be set
+	@return void
 	*/
 	public void setLeft(HuffmanNode l)
 	{
@@ -98,8 +104,8 @@ public class HuffmanNode implements Comparable
 	}
 	
 	/*
-	@param
-	@return
+	Accessor for right
+	@return HuffmanNode right
 	*/
 	public HuffmanNode right()
 	{
@@ -107,8 +113,9 @@ public class HuffmanNode implements Comparable
 	}
 	
 	/*
-	@param
-	@return
+	Modifier for right
+	@param l Right huffmannode to be set
+	@return void
 	*/
 	public void setRight(HuffmanNode r)
 	{
@@ -116,14 +123,28 @@ public class HuffmanNode implements Comparable
 	}
 	
 	/*
-	@param
-	@return
+	CompareTo method - here so that the priorityqueue knows how to sort the huffmannodes
+	It compares the huffmannodes with their frequencies
+	@param o Object it is being compared to
+	@return int Positive if frequency is greater and negative if frequency is less
 	*/
 	public int compareTo(Object o)
 	{
 		return frequency - ((HuffmanNode)o).frequency();
 	}
 	
-	//make constructor
-	
+	/*
+	Checks to see if the huffmanNode is a leaf - if there are no nodes to the left and right
+	It only needs to check if the left is null because the way the nodes are made, they will either
+	have both left and right values or both be null - it cannot be one or the other
+	@return boolean Whether or not huffmannode is a leaf
+	*/
+	public boolean isLeaf()
+	{
+		if (null == left())
+		{
+			return true;
+		}
+		return false;
+	}	
 }
