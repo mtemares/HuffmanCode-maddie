@@ -155,16 +155,13 @@ public class HuffmanNode implements Comparable
 	*/
 	public String toString()
 	{
-		String output = "";
 		if (isLeaf())
 		{
-			output += value();
+			return value();
 		}
 		else
 		{
-			output += value();
-			return left.toString() + right.toString();
+			return value()+ "\n" + left.toString() + right.toString();
 		}
-		return output;
 	}
 }
